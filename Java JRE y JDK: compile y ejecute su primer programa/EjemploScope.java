@@ -1,4 +1,4 @@
-
+//Todo aquello pque esta limitado por llaves.
 public class EjemploScope {
 	public static void main(String[] args) {
 		System.out.println("Hello world");
