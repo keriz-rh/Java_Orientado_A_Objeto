@@ -6,7 +6,7 @@ public class EjemploScope {
 		//int edad = 17;
 		int edad =21;
 		int cantidadDePersonas = 2;
-		
+		//Todo boolean por defecto es False
 		boolean esPareja;
 		
 		if (cantidadDePersonas > 1) {
