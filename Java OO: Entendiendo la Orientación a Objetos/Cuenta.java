@@ -1,5 +1,10 @@
-package proyecto_bytebank;
+// entidad Cuenta:
 
-public class Cuenta {
-
+class Cuenta {
+	double saldo;
+	int agencia;
+	int numero;
+	String titular;
+	
 }
+
