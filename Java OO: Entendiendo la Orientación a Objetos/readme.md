@@ -1,7 +1,6 @@
 # sobre métodos
-Es posible que un método no tenga parámetros.
-
-* Un método puede tener ninguno, uno o más parámetros.
+* Es posible que un método no tenga parámetros.
+Un método puede tener ninguno, uno o más parámetros.
 Un método define el comportamiento o la forma de hacer algo.
 
 * Este es el objetivo de los métodos, definir lo que un objeto sabe hacer. El comportamiento se implementa dentro del método.
