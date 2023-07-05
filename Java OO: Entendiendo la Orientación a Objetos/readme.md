@@ -31,3 +31,67 @@ _______________________________________________________
 # ¿Cómo llamar a un método?
 ### ¿Cuál es la sintaxis y el orden correctos para llamar a un método con Java?
 + **nombreDeReferencia.nombreDelMetodo();**
+_____________________________________________
+# ¿Conoces this?
++ El this es una palabra clave.
+ El this es una palabra clave igual al void, class, new, int y varias otras. El IDE Eclipce muestra todas las palabras claves en un color diferente, el color "púrpura".
+
++ El this es una referencia.
+ El this esta es una referencia, es decir, "apunta" a un objeto.
+  _____________________________________________________________________________
+  # Métodos validos
+  ## Suponiendo que cada método a continuación está dentro de una clase, declaraciones son válidas (compilan)
+```java
+      void deposita(){
+      }
+
+     void deposita(double valor, int numero){
+    }
+ ```
+_____________________________________________________________________________________________
+# ¿Dónde usar this? (Ejercicio)
+Ana está practicando OO con Java y creó otra clase Cuenta con solo dos atributos y un método. Sin embargo, dado que el uso de this es opcional, ella tiene dudas sobre dónde usar la palabra clave this dentro de una clase.
+
+Ella nos envió el código a continuación usando los caracteres [ ] en varios lugares, aquí está el código:
+```java
+class Cuenta {
+
+        [1] double saldo;
+        int numero;
+
+        void deposita([2] double valor) {
+            [3]saldo = [4]saldo + [5]valor;
+        }
+}
+```
+Observe que tenemos [1], [2], [3], [4] y [5] como lugares posibles para poner this, pero ¿cuál realmente funcionará y se compilará?
+**La respuesta correcta es Solo [3] y [4]**
+_________________________________________________________
+# Declaración de método (ejercicio)
+Pedro escribió el siguiente método, que no está compilando:
+```java
+// asumiendo que este método está dentro de la clase Cuenta que tiene los atributos
+public void sacar(double valor) {
+    if(saldo >= valor) {
+        saldo -= valor;
+        return true;
+    } else {
+        return false;
+    }
+}
+```
+"¿Qué hay de malo con el método?"
+## Era necesario definir el tipo correcto de retorno en el método.
+* El método no puede declararse como void. Es correcto usar el tipo boolean:
+```java
+public boolean sacar(double valor) {
+
+    if(saldo >= valor) {
+        saldo -= valor;
+        return true;
+    } else {
+        return false;
+    }
+}
+```
+
