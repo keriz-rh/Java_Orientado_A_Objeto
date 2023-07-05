@@ -26,3 +26,8 @@ Por convención, el nombre del método en el mundo Java debe comenzar con una le
 
 * Los ejemplos de nombres de métodos son: transferir transferirPara transferisParaOtroTitular
 Tenga en cuenta que todos los nombres comienzan con una letra minúscula y luego usan "CamelCase".
+
+_______________________________________________________
+# ¿Cómo llamar a un método?
+### ¿Cuál es la sintaxis y el orden correctos para llamar a un método con Java?
++ nombreDeReferencia.nombreDelMetodo();
