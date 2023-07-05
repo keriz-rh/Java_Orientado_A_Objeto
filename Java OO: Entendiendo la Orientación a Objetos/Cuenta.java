@@ -1,10 +1,12 @@
-// entidad Cuenta:
+package proyecto_bytebank;
 
-class Cuenta {
+public class Cuenta {
 	double saldo;
 	int agencia;
 	int numero;
 	String titular;
 	
+	void depositar(double valor) {
+		 saldo = saldo + valor;
+	}
 }
-
