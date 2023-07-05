@@ -1,3 +1,12 @@
+## ¿Cómo llamamos, en orientación a objeto, las características de una clase?
+* Atributo
+
+# Definiendo tipos
+_______________________________________________________
++ Una clase es una especificación de un tipo, que define atributos y comportamientos.
++ Un objeto es una instancia de una clase donde podemos definir valores para sus atributos.
++ Para crear una instancia necesitamos usar la palabra clave new
+__________________________________________________
 # sobre métodos
 * Es posible que un método no tenga parámetros.
 Un método puede tener ninguno, uno o más parámetros.
