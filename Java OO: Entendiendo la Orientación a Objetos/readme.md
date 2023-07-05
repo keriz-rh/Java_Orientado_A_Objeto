@@ -81,7 +81,8 @@ public void sacar(double valor) {
 }
 ```
 "¿Qué hay de malo con el método?"
-## Era necesario definir el tipo correcto de retorno en el método.
+### RESPUESTA
+### Era necesario definir el tipo correcto de retorno en el método.
 * El método no puede declararse como void. Es correcto usar el tipo boolean:
 ```java
 public boolean sacar(double valor) {
