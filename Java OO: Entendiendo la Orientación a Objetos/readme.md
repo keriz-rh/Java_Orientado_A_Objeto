@@ -95,4 +95,15 @@ public boolean sacar(double valor) {
     }
 }
 ```
+__________________________________________________________________
+# Lo que aprendimos
+
+### En esta clase hablamos sobre el comportamiento que son los métodos.
+
+### Vimos:
+
++cómo definir métodos con parámetros y retorno cómo devolver algo usando la palabra clave return cómo usar la referencia thispara acceder a un atributo que podemos pasar una referencia como parámetro de método los métodos se invocan desde la referencia utilizando el operador .
+
++Si aún tiene dudas sobre las referencias, this y el uso de métodos, tenga la seguridad de que en las próximas clases (y cursos) revisaremos los conceptos y practicaremos mucho más.
+_________________________________________________________________________________________
 
