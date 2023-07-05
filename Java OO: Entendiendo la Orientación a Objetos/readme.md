@@ -1,3 +1,12 @@
+# Idea central del paradigma OO
+________________________________________________
+Los datos y la funcionalidad de una entidad van de la mano.
+__________________________________________________________
+Un poco de programación procedural
+### No es un signo de la programación procedural.
+- Múltiples equipos trabajando en un solo proyecto.
++ Para que varios equipos puedan trabajar en el mismo proyecto, es necesario que las responsabilidades de cada código estén bien definidas y claras, evitando conflictos al hacer cambios y evoluciones. El código con responsabilidades cohesivas es un signo del paradigma OO.
+__________________________________________________________________________
 ## ¿Cómo llamamos, en orientación a objeto, las características de una clase?
 * Atributo
 
