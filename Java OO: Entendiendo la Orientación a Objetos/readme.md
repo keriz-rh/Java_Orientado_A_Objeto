@@ -131,3 +131,31 @@ public class Banco {
 ```
  * ¿Qué podemos decir sobre el código?
  * R/ *No compila porque el numeroIdentidad es privado.*
+
+#  Creando Getters e Setters
+Paulo está creando getters y setters para la siguiente clase:
+```java
+public class Alumno {
+    private String nombre;
+    private String matricula;
+}
+```
+### ¿Cómo sería, la declaración de getters y setters para los dos atributos de la clase?
+
+```java
+public String getNombre(){
+   return this.nombre;
+}
+
+public String getMatricula(){
+   return this.matricula;
+}
+
+public void setMatricula(String matricula){
+   this.matricula = matricula;
+}
+
+public void setNombre(String nombre){
+   this.nombre = nombre;
+}
+```
