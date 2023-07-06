@@ -37,8 +37,20 @@ public class Cuenta {
 
 	}
 	
-	public double obtenerSaldo() {
+	public double getSaldo() {
 		return this.saldo;
+	}
+	
+	public void setAgencia(int agencia) {
+		if (agencia > 0) {
+			this.agencia = agencia;
+		} else {
+			System.out.println("No están permitidos valores negativos");
+		}
+	}
+	
+	public int getAgencia() {
+		return agencia;
 	}
 }
 
