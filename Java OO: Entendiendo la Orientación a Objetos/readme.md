@@ -159,3 +159,8 @@ public void setNombre(String nombre){
    this.nombre = nombre;
 }
 ```
+
+#  Ventajas de los atributos privados.
+### Romulo creó una clase con varios atributos privados, pero no sabe exactamente qué ventaja utilizar este enfoque. 
+* ¿Cuál es la ventaja de usar atributos privados?
+* R/ La implementación interna se puede modificar sin afectar ningún código fuera de la clase misma.
