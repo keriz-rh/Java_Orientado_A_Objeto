@@ -4,9 +4,9 @@ package proyecto_bytebank;
  de igual manera tenemos al private, con esta no tenemos accso a la información*/
 public class Cuenta {
 	private double saldo;
-	int agencia;
-	int numero;
-	String titular;
+	private int agencia;
+	private int numero;
+	Cliente titular = new Cliente();
 
 	//No retorna valor
 	void depositar(double valor) {
@@ -51,6 +51,10 @@ public class Cuenta {
 	
 	public int getAgencia() {
 		return agencia;
+	}
+	
+	public void setTitular(Cliente titular) {
+		this.titular = titular;
 	}
 }
 
