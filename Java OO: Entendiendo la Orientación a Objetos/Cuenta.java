@@ -2,11 +2,12 @@ package proyecto_bytebank;
 /*public son llamados codificadores de acceso esto permite que
  que sea visible desde cualquier parte del codigo
  de igual manera tenemos al private, con esta no tenemos accso a la información*/
+
 public class Cuenta {
 	private double saldo;
 	private int agencia;
 	private int numero;
-	Cliente titular = new Cliente();
+	private Cliente titular = new Cliente();
 
 	//No retorna valor
 	void depositar(double valor) {
@@ -55,6 +56,10 @@ public class Cuenta {
 	
 	public void setTitular(Cliente titular) {
 		this.titular = titular;
+	}
+	
+	public Cliente getTitular() {
+		return titular;
 	}
 }
 
