@@ -276,3 +276,215 @@ Conclusión Los setters y getters deben usarse con precaución y no todos los at
 
 ## Lo que aprendimos
 ## Atributos privados, restringiendo el acceso a los atributos. Encapsulación de código Métodos de lectura de atributos, los getters Métodos para modificar atributos, los setters Getters y Setters de referencia
+
+#  Utilizando constructores
+## Los constructores se utilizan para inicializar los atributos.
+
+# Ejercicio
+##  ¿Por qué no suma?
+Luan desarrolló un juego y siempre quiere mantener actualizada la cantidad de jugadores. Para esto, Luan escribió el siguiente código:
+```java
+public class Jugador {
+    //Código omitido
+    private int total = 0;
+
+    public Jugador(//atributos){
+       total++;
+    }
+}
+```
+Sin embargo, el contador siempre muestra 1 después de insertar un nuevo jugador. ¿Cuál es el motivo de este evento?
++ Respuesta/ **El total debe ser estático, por lo que cada vez que se crea un nuevo objeto de tipo Jugador, no se crea un nuevo total, manteniendo el valor correcto.**
+
+## Ejrecicio
+###  ¿Dónde está el error?
+Todavía en el juego de Luan, tenemos otro fragmento de código:
+```java
+public class Juego {
+    //Código omitido
+
+    private Componente comp;
+    public Juego(Usuario usuario){
+       this.comp = usuario;
+    }
+}
+```
+Sin embargo, el código anterior ni siquiera se compila. ¿Cuál es el motivo de este evento?
+* Respuesta/ **Se asignan objetos de diferentes tipos.**
+  #  Para obtener más información: reutilizar entre constructores
+  En este capítulo, nuestro aprendizaje se centró en los constructores. Están diseñados para que los objetos tengan sus atributos inicializados en la construcción misma. Esta estrategia evita estados inconsistentes en nuestro objeto. Vea esta clase:
+```java
+public class Carro{
+    private int anho;
+    private String modelo;
+    private double precio;
+
+    //getters e setters omitidos        
+
+}
+```
+Como ya se sabe, cuando el constructor no se declara en la clase, se utiliza el valor predeterminado, que no recibe ningún parámetro. Por lo tanto, un uso de la clase podría ser el siguiente:
+```java
+Carro carro = new Carro();
+carro.setAhho(2013);
+carro.setPrecio(35000.0);
+```
+¡Falta información valiosa! ¿Cuál es su modelo? Para evitar este tipo de problema, debemos exigir los datos que tienen sentido cuando se crea el carro. Algo como:
+```java
+public class Carro{
+    private int anho;
+    private String modelo;
+    private double precio;
+
+    public Carro(int anho, String modelo, double precio){
+        this.anho = anho;
+        this.modelo = modelo;
+        this.preco = precio;
+    }
+    //getters y setters omitidos        
+}
+```
+Ahora el uso requiere la presencia de los 3 parámetros definidos.
+```java
+Carro carro = new Carro(2013, "Gol", 35000.0);
+```
+¡Todo funciona bien! Hasta que un día se le pide a nuestro sistema que acepte la creación con el paso de solo el modelo y el valor. En esta situación, el año debería verse como 2017. Una solución sería:
+```java
+public class Carro{
+    private int anho;
+    private String modelo;
+    private double precio;
+
+    public Carro(int anho, String modelo, double precio){
+        this.ahno = anho;
+        this.modelo = modelo;
+        this.precio = precio;
+    }
+
+    //Nuevo constructor AQUI!
+    public Carro(String modelo, double precio){
+        this.anho = 2017;
+        this.modelo = modelo;
+        this.precio = precio;
+    }
+
+    //getters e setters omitidos        
+
+}
+```
+Y de esa manera puedes construir autos con cualquiera de los dos constructores:
+```java
+Carro carro = new Carro(2013, "Gol", 35000.0);
+Carro otroCarro = new Carro("Civic", 95000.0);
+```
+Sin embargo, en la compañía donde se codifica este sistema, hay un equipo de prueba que verificó que nuestro sistema permite la creación de un automóvil con fechas anteriores al primer automóvil que llegó a Brasil, un Peugeot traído por Santos Dumont en 1891. Además de permitir que el modelo no se pase (null) y el precio inválido.
+
+El desarrollador pronto intentó implementar esta regla en uno de los constructores:
+
+Tenga en cuenta que, como tenemos dos constructores, la regla también debería aplicarse al otro:
+
+```java
+public class Carro{
+    private int ano;
+    private String modelo;
+    private double precio;
+
+    public Carro(int ano, String modelo, double precio){
+        if(ano >= 1891){
+            this.ano = ano;
+        }else{
+            System.out.println("El año informado no es válido. Por eso usaremos 2017!");
+            this.ano = 2017;
+        }
+
+        if( modelo != null){
+            this.modelo = modelo;
+        }else{
+            System.out.println("El modelo no fue informado. Por eso usaremos Gol!");
+            this.modelo = "Gol";
+        }
+
+        if(precio > 0){
+            this.precio = precio;
+        }else{
+            System.out.println("El precio no es válido. Por eso usaremos 40000.0!");
+            this.precio = 40000.0;
+        }
+
+    }
+
+    //Nuevo construtor AQUI!
+    public Carro(String modelo, double precio){
+        this.ano = 2017;
+        if( modelo != null){
+            this.modelo = modelo;
+        }else{
+            System.out.println("El modelo no fue informado. Por eso usaremos Gol!");
+            this.modelo = "Gol";
+        }
+
+        if(precio > 0){
+            this.precio = precio;
+        }else{
+            System.out.println("El precio no es válido. Por eso usaremos 40000.0!");
+            this.precio = 40000.0;
+
+        }
+
+        //getters e setters omitidos
+
+    }
+```
+¡Funcionó, pero el código está duplicado y nuestra clase comienza a no verse bien! Los códigos duplicados requieren un mantenimiento doble en el futuro y, en la mayoría de los casos, un futuro no muy lejano. Sería genial si fuera posible reutilizar la lógica de validación del primer constructor declarado, ¿no? Reutilizaríamos todo y cualquier cambio también tendría un impacto directo. En Java podemos llamar a la implementación de un constructor a través de otro usando simplemente this () con los parámetros requeridos por el constructor.
+
+Observe cómo se vería el segundo constructor de nuestra clase:
+```java
+public Carro(String modelo, double precio){
+    //llamando al constructor que recibe int, String y double primero!    
+        this(2017, modelo, preco);
+    }
+```
+Mucho más simple que:
+```java
+public class Carro{
+    private int ano;
+    private String modelo;
+    private double precio;
+
+    public Carro(int ano, String modelo, double precio){
+        if(ano >= 1891){
+            this.ano = ano;
+        }else{
+            System.out.println("El año informado no es válido. Por eso usaremos 2017!");
+            this.ano = 2017;
+        }
+
+        if( modelo != null){
+            this.modelo = modelo;
+        }else{
+            System.out.println("El modelo no fue informado. Por eso usaremos Gol!");
+            this.modelo = "Gol";
+        }
+
+        if(precio > 0){
+            this.precio = precio;
+        }else{
+            System.out.println("EL precio no es válido. Por eso usaremos 40000.0!");
+            this.precio = 40000.0;
+        }
+    }
+
+    //Nuevo constructor AQUI!
+    public Carro(String modelo, double precio){
+        this(2017, modelo, precio);
+    }
+
+    //getters e setters omitidos
+
+}
+```
+## Conclusión
+**En Java, es posible llamar a un constructor dentro de otro, y esto se hace para evitar la duplicación de códigos y reglas. Después de todo, una regla aplicada en un constructor normalmente será la misma para el otro caso. Para esto, se usa this (), pasando los parámetros correspondientes al constructor al que desea llamar.**
+### Lo que aprendimos
+### Constructor de clases, que permite recibir argumentos e inicializar atributos desde la creación de un objeto. Con esto, la inicialización de los atributos recibidos en el constructor se vuelve obligatoria. Atributos de clase, atributos estáticos. Métodos de clase, métodos estáticos. Ausencia de referencia, del this, dentro de los métodos estáticos.
+
