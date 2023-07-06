@@ -107,3 +107,27 @@ __________________________________________________________________
 + *Si aún tiene dudas sobre las referencias, this y el uso de métodos, tenga la seguridad de que en las próximas clases (y cursos) revisaremos los conceptos y practicaremos mucho más.*
 _________________________________________________________________________________________
 
+# Encapsulamiento.
+____________________________________________
+### Ejemplo
+Luan decidió crear un modelo para entrenar la orientación y encapsulación de objetos:
+```java
+public class Cliente {
+    String nombre;
+    private String numeroIdentidad;
+    int edad;
+}
+// Y está creando un objeto Cliente en la otra clase:
+
+public class Banco {
+
+  public static void main(String[] args) {
+    Cliente cliente = new Cliente();
+    cliente.nombre = "José";
+    cliente.numeroIdentidad = "12312312312";
+    cliente.edad = 49;
+  }
+}
+```
+ * ¿Qué podemos decir sobre el código?
+ * R/ *No compila porque el numeroIdentidad es privado.*
