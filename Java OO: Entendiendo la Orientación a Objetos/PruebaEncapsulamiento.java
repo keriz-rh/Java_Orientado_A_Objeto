@@ -5,6 +5,11 @@ public class PruebaEncapsulamiento {
 		Cuenta cuenta = new Cuenta();
 		Cliente cliente = new Cliente();
 		cliente.setNombre("Kevin");
-		cliente.setDocumento("sdaf232");		
+		cliente.setDocumento("sdaf232");	
+		
+		cuenta.setTitular(cliente);
+		
+		System.out.println(cliente.getNombre());
+		System.out.println(cuenta.getTitular().getNombre());
 	}
 }
