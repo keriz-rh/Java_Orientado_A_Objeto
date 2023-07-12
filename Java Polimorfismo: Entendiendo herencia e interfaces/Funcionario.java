@@ -1,15 +1,9 @@
 package bytebanck_heredado;
 
-public class Funcionario {
-
+public class Gerente {
 	private String nombre;
-	private String documento; 
+	private String documento;
 	private double salario;
-	
-	/*Constructor es aquel metodo publico donde el tipo de objeto es la clase en sí.
-	 Y este puede o no recibir variables*/
-	public Funcionario() {
-	}
 	
 	public String getNombre() {
 		return nombre;
@@ -29,9 +23,9 @@ public class Funcionario {
 	public void setSalario(double salario) {
 		this.salario = salario;
 	}
-	
-	public double getBonificacion() {
-		return this.salario * 0.1;	
-	}
 
+	public double getBonificacion() {
+		return this.salario;
+	}
+	
 }
