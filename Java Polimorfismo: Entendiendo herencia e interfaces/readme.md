@@ -96,7 +96,15 @@ public class TestGerente {
     }
 
 }
-```  
+```
+
+En esta parte aprendemos:
++Cuáles son los problemas que la herencia resuelve.
++Cómo usar la herencia en Java a través de la palabra llave extends
++Al heredar la clase hija gana todas las características (atributos) y todas las funcionalidades (métodos) de la clase madre.
++Conocimos el primer beneficio de la herencia: La reutilización de código.
+
+
 # Code Smells
 ¿Cuáles fueron los problemas presentados en la implementación de la clase Funcionario?
 
