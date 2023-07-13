@@ -1,6 +1,19 @@
 package bytebanck_heredado;
+		   //Extiende de, es un.
+public class Gerente extends Funcionario{
 
-public class Gerente {
+	private String clave;
+	
+	public void setcalve(String clave) {
+		this.clave = clave;
+	}
+	
+	public boolean iniciarSesion(String clave) {
+		return clave == "contraseña";
+	}
+}
+
+/*public class Gerente {
 	private String nombre;
 	private String documento;
 	private double salario;
@@ -26,6 +39,6 @@ public class Gerente {
 
 	public double getBonificacion() {
 		return this.salario;
-	}
+	} 
 	
-}
+} */
