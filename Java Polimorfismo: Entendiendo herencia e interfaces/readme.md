@@ -1,7 +1,7 @@
 # Code Smells
-# ¿Cuáles fueron los problemas presentados en la implementación de la clase Funcionario?
+¿Cuáles fueron los problemas presentados en la implementación de la clase Funcionario?
 
-# Nota: Esos problemas en el código o en el diseño también son llamados de Code Smells. Existe un libro famoso llamado Clean Code, del autor Robert C Martin, que se hizo famoso por mostrar el Code Smells y como resolverlo. El libro ya es un poco antiguo, pero vale la pena leerlo.
+Nota: Esos problemas en el código o en el diseño también son llamados de Code Smells. Existe un libro famoso llamado Clean Code, del autor Robert C Martin, que se hizo famoso por mostrar el Code Smells y como resolverlo. El libro ya es un poco antiguo, pero vale la pena leerlo.
 
 + Código no muy expresivo
   Por ejemplo, ¿cuál tipo de Funcionario representa el valor 0?. 
@@ -11,7 +11,7 @@
    Para cada nuevo tipo de Funcionario es necesario agregar una nueva condición if .
   
 # Herencia
-## La herencia en Java es un mecanismo que permite que una clase adquiera los atributos y métodos de otra clase, conocida como clase padre o superclase. Esto promueve la reutilización de código y la creación de jerarquías de clases. La clase hija o subclase hereda los miembros de la clase padre y puede agregar nuevos miembros o modificar el comportamiento heredado.
+La herencia en Java es un mecanismo que permite que una clase adquiera los atributos y métodos de otra clase, conocida como clase padre o superclase. Esto promueve la reutilización de código y la creación de jerarquías de clases. La clase hija o subclase hereda los miembros de la clase padre y puede agregar nuevos miembros o modificar el comportamiento heredado.
 Ejemplo: 
 ```java
 class Gerente extends Funcionario {
