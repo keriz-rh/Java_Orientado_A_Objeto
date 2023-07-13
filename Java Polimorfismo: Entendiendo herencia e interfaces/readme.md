@@ -11,3 +11,5 @@
   
 + Muchos if que no paran de crecer
    Para cada nuevo tipo de Funcionario es necesario agregar una nueva condición if .
+# Herencia
+La herencia en Java es un mecanismo que permite que una clase adquiera los atributos y métodos de otra clase, conocida como clase padre o superclase. Esto promueve la reutilización de código y la creación de jerarquías de clases. La clase hija o subclase hereda los miembros de la clase padre y puede agregar nuevos miembros o modificar el comportamiento heredado.
