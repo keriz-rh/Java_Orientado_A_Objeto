@@ -25,7 +25,7 @@ En el mundo Java se usa la palabra llave extends. Solo por curiosidad, todas las
 +Herencia en Ruby: class Carro < Vehiculo
 +Herencia en Python: class Carro (Vehiculo)
 
-##Crea el codigo
+## Crea el codigo
 En Eclipse, cree un proyecto nuevo Java llamado byteBank-heredado.
 
 Dentro del proyecto, cree la clase Funcionario con los atributos privados nombre e documentoIdentidad de tipo String, e salario de tipo double.
