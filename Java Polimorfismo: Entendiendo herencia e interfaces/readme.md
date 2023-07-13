@@ -14,7 +14,16 @@ La clase Gerente, al extender la clase Funcionario.
 + Es un Funcionario.
    Al extender la clase Funcionario se puede decir que el Gerente es un Funcionario. Lo que significa que lo veremos con 
    más detalles. ¡Espere!
+  
+la sintaxis correcta para extender una clase en Java es la siguiente
+    ```java
+        class Carro extends Vehiculo { }
+    ```
+En el mundo Java se usa la palabra llave extends. Solo por curiosidad, todas las otras afirmaciones son ejemplos de herencia en otros lenguajes
 
++Herencia en C#: class Carro : Vehiculo { }
++Herencia en Ruby: class Carro < Vehiculo
++Herencia en Python: class Carro (Vehicul
 
 # Code Smells
 ¿Cuáles fueron los problemas presentados en la implementación de la clase Funcionario?
