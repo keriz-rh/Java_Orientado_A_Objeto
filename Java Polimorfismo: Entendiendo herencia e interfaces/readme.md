@@ -104,6 +104,8 @@ En esta parte aprendemos:
 + Al heredar la clase hija gana todas las características (atributos) y todas las funcionalidades (métodos) de la clase madre.
 + Conocimos el primer beneficio de la herencia: La reutilización de código.
 
+# This y super
+![image](https://github.com/Kerizr/Java_Orientado_A_Objeto/assets/114261500/3c500f8e-9ec6-4be8-9a50-9b87838b4839)
 
 # Code Smells
 ¿Cuáles fueron los problemas presentados en la implementación de la clase Funcionario?
