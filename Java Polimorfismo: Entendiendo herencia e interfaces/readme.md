@@ -108,7 +108,7 @@ En esta parte aprendemos:
 ![image](https://github.com/Kerizr/Java_Orientado_A_Objeto/assets/114261500/3c500f8e-9ec6-4be8-9a50-9b87838b4839)
 
 # Dominando la herencia
-Sobre la herencia en Java, juzgue las siguientes declaraciones:
+Sobre la herencia en Java, tenemos las siguientes declaraciones:
 
 + Una clase puede tener varias hijas, pero solo una madre.
 
@@ -130,6 +130,103 @@ class Perro extends Mamifero {
 }
 ```
 **Se puede llamar a cualquier método de la clase madre. Una clase puede tener diversas “hijas y nietas” (que se heredan unos de otros) pero no podemos escoger lo que será heredado.**
+
+# Sobreescritura 
+a sobreescritura es un concepto importante de la herencia, porque permite redefinir un comportamiento previsto en la clase madre a través de la clase hija. Ahora vea la clase Vehiculo abajo.
+```java
+class Vehiculo {
+    public  void encender() {
+        // Alguna implementación
+    }
+}
+```
+Y la clase Hija Carro:
+```java
+class Carro extends Vehiculo {
+    // ????
+}
+```
+
+```java
+public void encender() {
+    // implementación
+}
+```
+Observe que el método posee la misma firma. Esto significa, una misma visibilidad, un mismo retorno, un mismo nombre y los mismo parámetros.
+
+## Visibilidad
+En relación con lo que ha aprendido hasta ahora, el orden correcto de los modificadores de visibilidad, de menor a mayor visibilidad es el siguiente
+
+private < public < protected
+
++ La palabra llave con menor visibilidad es private, después viene protected y después public.
++ private - solo visible dentro de la clase.
++ protected - visible dentro de la clase y también para las hijas.
++ public - visible en todo lugar.
++ También tenga en cuenta que protected está relacionado con la herencia.
+
+# Modificadores de acceso
+Los modificadores de acceso o accesibilidad son algunas palabras claves utilizadas en el lenguaje Java para definir el nivel de accesibilidad que los elementos de una clase (atributos y métodos) e incluso la propia clase puede tener los mismos elementos de otra clase.
+
+Public
+
+Este es el modificador menos restrictivo de todos. De esta manera, cualquier componente puede acceder a los miembros de la clase, las clases y las interfaces.
+
+Protected
+
+Al usar este modificador de acceso, los miembros de la clase y las clases son accesibles para otros elementos siempre que estén dentro del mismo package o, si pertenecen a otros packages, siempre que tengan una relación extendida (herencia), es decir, las clases secundarias pueden acceder a los miembros de su clase principal (o clase de abuelos, etc.).
+
+Private
+
+Este es el modificador de acceso más restrictivo de todos. Solo se puede acceder a los miembros definidos como privados desde dentro de la clase y desde ningún otro lugar, independientemente del paquete o la herencia.
+
+###  Private x Protected
+¿Cuál es la diferencia entre private y protected?
+Solo la propia clase en sí ve atributos/métodos private, mientras que protected es visto por la propia clase más las clases hijas.
+
+# Sobrecarga
+Existe otro concepto en los lenguajes OO que se llama sobrecarga que es mucho más simple que la sobreescritura y no depende de la herencia.
+
+Por ejemplo, en nuestra clase Gerente, imagina otro nuevo método autenticar que recibe además de la contraseña también el login:
+```java 
+public class Gerente extends Funcionario {
+
+    private int contraseña;
+
+    public int getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(int contraseña) {
+        this.contraseña = contraseña;
+    }
+
+    public boolean autenticar(int contraseña) {
+        if (this.contraseña == contraseña) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Nuevo método, recibiendo dos parámetros
+    public boolean autenticar(String login, int contraseña) {
+        // implementación omitida
+    }
+
+    // Otros métodos omitidos
+}
+```
+Observe que hemos creado una nueva versión del método autenticar. Ahora tenemos dos métodos de autenticar en la misma clase que varían en el número o tipo de parámetros. Esto se llama sobrecarga de métodos.
+
+La sobrecarga no tiene en cuenta la visibilidad o retorno del método, solo los parámetros y no depende de la herencia.
+
+ # Lo aprendido 
++ que la clase madre es llamada de super o base class.
++ que la clase hija también es llamada de sub class.
++ como aumentar la visibilidad de un miembro (atributo, método) a través de protected.
++ cómo acceder o llamar un miembro (atributo, método) a través de super.
++ cómo redefinir un método a través de la sobreescritura. En la próxima clase veremos un nuevo beneficio de la herencia, el Polimorfismo. ¡Aguarda!
 
 # Code Smells
 ¿Cuáles fueron los problemas presentados en la implementación de la clase Funcionario?
