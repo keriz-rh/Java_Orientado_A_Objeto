@@ -7,9 +7,11 @@ El polimorfismo se basa en dos conceptos clave: la herencia y el enlace tardío 
 
 El polimorfismo ofrece ventajas como la reutilización de código, la flexibilidad en el diseño y la capacidad de escribir código más genérico y fácil de mantener. Al aprovechar el polimorfismo, los desarrolladores pueden escribir programas más modulares y escalables, ya que los objetos pueden ser intercambiados y utilizados de manera más flexible en diferentes partes del código.
 
-En el mundo orientado a objetos, el polimorfismo permite que:
++ En el mundo orientado a objetos, el polimorfismo permite que:
+
 Las referencias de tipos de clases más genéricos referencian objetos más específicos.
 Vimos eso en el código, a través del ejemplo:
+
 ```java
 Funcionario e = new Gerente();
 ```
