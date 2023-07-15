@@ -228,6 +228,29 @@ La sobrecarga no tiene en cuenta la visibilidad o retorno del método, solo los 
 + cómo acceder o llamar un miembro (atributo, método) a través de super.
 + cómo redefinir un método a través de la sobreescritura. En la próxima clase veremos un nuevo beneficio de la herencia, el Polimorfismo. ¡Aguarda!
 
+# Haga el codigo por su cuenta.
+
+El gerente tiene una bonificación diferente, tiene la bonificación de un empleado común más un salario. Luego, en la clase Gerente, reescribe el método getBonificacion().
+
+En este método, aproveche el método getBonificacion() de la superclase:
+```java
+public double getBonificacion() {
+    return super.getBonificacion();
+}
+```
+Además, agregue un salario a la bonificación actual. Para ello acceda al método getSalario(), también perteneciente a la superclase:
+
+```java
+public double getBonificacio() [
+    return super.getBonificacion() + super.getSalario();
+}
+```
+En la clase TestGerente, imprima al final la bonificación del gerente y vea el resultado.
+
+```java
+
+```
+
 # Code Smells
 ¿Cuáles fueron los problemas presentados en la implementación de la clase Funcionario?
 
