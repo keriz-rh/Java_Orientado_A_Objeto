@@ -12,9 +12,14 @@ public class Gerente extends Funcionario{
 		return clave == "contraseña";
 	}
 
+	//Sobre-escritura de metodo
 	public double getBonificacion() {
-		return super.getSalario();
+	return super.getSalario() + super.getBonificacion();
 	}
+	
+	//public double getBonificacion() {
+	//	return super.getSalario();
+	//}
 }
 
 /*public class Gerente {
