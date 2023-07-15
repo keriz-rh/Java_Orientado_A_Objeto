@@ -107,6 +107,30 @@ En esta parte aprendemos:
 # This y super
 ![image](https://github.com/Kerizr/Java_Orientado_A_Objeto/assets/114261500/3c500f8e-9ec6-4be8-9a50-9b87838b4839)
 
+# Dominando la herencia
+Sobre la herencia en Java, juzgue las siguientes declaraciones:
+
++ Una clase puede tener varias hijas, pero solo una madre.
+
++ Desde una instancia de una clase hija, podemos llamar a cualquier método público que haya sido declarado en la clase Madre.
+
++ En el siguiente ejemplo, Perro también hereda todo de la clase Animal:
+
+```java 
+class Animal {
+    // atributos y métodos
+}
+
+class Mamifero extends Animal {
+    // atributos y métodos
+}
+
+class Perro extends Mamifero {
+    // atributos y métodos
+}
+```
+**Se puede llamar a cualquier método de la clase madre. Una clase puede tener diversas “hijas y nietas” (que se heredan unos de otros) pero no podemos escoger lo que será heredado.**
+
 # Code Smells
 ¿Cuáles fueron los problemas presentados en la implementación de la clase Funcionario?
 
