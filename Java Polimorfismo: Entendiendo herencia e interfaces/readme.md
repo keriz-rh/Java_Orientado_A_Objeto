@@ -63,3 +63,11 @@ public class TestReferencias {
 + la referencia puede cambiar, y ahí es donde entra el polimorfismo;
 + el polimorfismo permite utilizar referencias más genéricas para comunicarse con un objeto;
 + el uso de referencias más genéricas permite desacoplar sistemas.
+
+###  Herencia de clases
+
+Con respecto a la herencia de clases, tenemos las afirmaciones:
++ Cuando una clase hereda de otra clase, también recibe sus métodos.
++ Cuando una clase hereda de otra clase, también recibe sus atributos.
+
+
