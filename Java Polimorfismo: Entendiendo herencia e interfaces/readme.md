@@ -57,3 +57,9 @@ public class TestReferencias {
     }
 }
 ```
+*aprendimos que:*
+
++ los objetos no cambian de tipo;
++ la referencia puede cambiar, y ahí es donde entra el polimorfismo;
++ el polimorfismo permite utilizar referencias más genéricas para comunicarse con un objeto;
++ el uso de referencias más genéricas permite desacoplar sistemas.
