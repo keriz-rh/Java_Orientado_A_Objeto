@@ -15,3 +15,45 @@ Vimos eso en el código, a través del ejemplo:
 ```java
 Funcionario e = new Gerente();
 ```
+Para controlar la bonificación de funcionario, cree la clase ControleBonificacion con el atributo privado suma, de tipo double, y su getter.
+
+En esa clase, cree el método de registrar, que recibe un Funcionario por parámetro, toma su bonificación y luego lo suma con las otras bonificaciones. Y también cree el método getSuma para devolver el valor del atributo de suma:
+```java
+public void registrar(Funcionario e) {
+    double boni = e.getBonificacion();
+    this.suma = this.suma + boni;
+}
+
+public double getSuma() {
+    return this.suma;
+}
+```
+Para probar, cree dos nuevos Funcionarios, o sea, dos nuevas clases con bonificaciones diferentes. Por ejemplo, la clase EditorVideo con bonificación de $150 e la clase Designer, con bonificación de $200.
+
+Cree la clase TestReferencias, donde instancie funcionarios diferentes. Registre sus bonificaciones y visualice sus sumas.
+
+```java
+public class TestReferencias {
+
+    public static void main(String[] args) {
+
+        Gerente g1 = new Gerente();
+        g1.setNombre("Marcos");
+        g1.setSalario(5000.0);
+
+        EditorVideo ev = new EditorVideo();
+        ev.setSalario(2500.0);
+
+        Designer d = new Designer();
+        d.setSalario(2000.0);
+
+        ControleBonificacion controle = new ControleBonificacion();
+        controle.registrar(g1);
+        controle.registrar(ev);
+        controle.registrar(d);
+
+        System.out.println(controle.getSuma());
+
+    }
+}
+```
