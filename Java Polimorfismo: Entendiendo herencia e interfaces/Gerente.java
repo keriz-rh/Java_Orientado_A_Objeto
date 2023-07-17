@@ -1,53 +1,22 @@
 package bytebanck_heredado;
-		   //Extiende de, es un.
-public class Gerente extends Funcionario{
+					//Extiende de, es un.
+public class Gerente extends Funcionario implements Atunticable{
 
-	private String clave;
 	
-	public void setcalve(String clave) {
-		this.clave = clave;
+	@Override
+	public double getBonificacion() {
+		return 200;
 	}
 	
+	@Override
+	public void setclave(String clave) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
 	public boolean iniciarSesion(String clave) {
-		return clave == "contraseña";
+		// TODO Auto-generated method stub
+		return false;
 	}
-
-	//Sobre-escritura de metodo
-	public double getBonificacion() {
-	return super.getSalario() + super.getBonificacion();
-	}
-	
-	//public double getBonificacion() {
-	//	return super.getSalario();
-	//}
 }
-
-/*public class Gerente {
-	private String nombre;
-	private String documento;
-	private double salario;
-	
-	public String getNombre() {
-		return nombre;
-	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public String getDocumento() {
-		return documento;
-	}
-	public void setDocumento(String documento) {
-		this.documento = documento;
-	}
-	public double getSalario() {
-		return salario;
-	}
-	public void setSalario(double salario) {
-		this.salario = salario;
-	}
-
-	public double getBonificacion() {
-		return this.salario;
-	} 
-	
-} */
