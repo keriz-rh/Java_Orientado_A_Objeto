@@ -70,4 +70,62 @@ Con respecto a la herencia de clases, tenemos las afirmaciones:
 + Cuando una clase hereda de otra clase, también recibe sus métodos.
 + Cuando una clase hereda de otra clase, también recibe sus atributos.
 
+  ## Sobre el constructor
+El constructor por default de java deja de existir a partir del momento que alguno es declarado en la clase.
+
+Tan pronto como creamos nuestro propio constructor, el constructor predeterminado (sin parámetros) deja de existir. Sin embargo, nada impide agregar explícitamente el constructor por default.
+
+### La anotación *@Override*
+Se utiliza para sobrescribir el método de la clase madre, lo que indica que se ha modificado el método original.
+
+### Sobre la abstraccion
++ No se pueden ser instanciadas. Para crear una instancia, primero debemos crear una clase hija no abstracta.
++ Una clase abstracta representa un concepto, algo abstracto, y el compilador no permite instanciar un objeto de esa clase. + Para crear una instancia, es necesario crear primero una clase hija no abstracta.
++ No tienen cuerpo (implementación), solo definen la firma.
++ un método abstracto define solo la firma (visibilidad, retorno, nombre del método y parámetros).
++ No se puede crear una instancia, porque lo abstracto (la clase) no puede volverse concreto (objeto). Por lo tanto, no podemos instanciar objetos de una clase abstracta.
++ Puede tener métodos abstractos (sin implementació), una clase abstracta puede tener métodos sin implementación. Por lo tanto, obligamos a un hijo a implementar el método.
++ Pueden tener atributos podemos tener atributos Una clase abstracta es una clase normal, simplemente no puede instanciar y puede tener métodos abstractos. ¡El resto sigue siendo válido!
++ Puede tener métodos concretos (con implementación) como pueden tener atributos, ¡también pueden tener métodos concretos!
+
+  ### Clase abastracta e dinterfaz
+  ![image](https://github.com/Kerizr/Java_Orientado_A_Objeto/assets/114261500/a328f147-bef9-4e7e-baea-5cbbb0855eb5)
+
+  ### Clases y metodos abstractactos
++ Las clases abstractas son útiles cuando queremos utilizar comportamientos y atributos basados ​​en clases con comportamientos comunes.
++ ¡Los beneficios de la herencia siguen siendo válidos!
+
++ Usamos métodos abstractos cuando queremos "forzar" a un hijo concreto (clase concreta) a implementar un método.
++ Ese es el significado de los métodos abstractos, garantizar que el hijo implemente un comportamiento.
+
+### Lo que aprendimos
++ Qué son las clases abstractas
++ Para qué sirven las clases abstractas
++ Qué son los métodos abstractos
++ Para qué sirven los métodos abstractos
+
+# Interfaces
+Vimos en la última clase que no hay herencia múltiple en Java. ¿Cómo podemos evitar la falta de ella?
+Podemos solucionar esta situación con el uso de interfaces.
+Usando interfaces tenemos otra forma de lograr polimorfismo sin herencia.
+TODA INTERFAZ ES ABSTRACTA
+### Clases abstractactas e interfaces
++ Podemos extender solo una clase abstracta, pero podemos implementar varias interfaces.
++ Solo existe una herencia simple en Java, pero podemos implementar tantas interfaces como queramos.
++ Todos los métodos de una interfaz son abstractos, los de una clase abstracta pueden no serlo.
++ todos los métodos en la interfaz son siempre abstractos y siempre públicos.
++ En una clase abstracta podemos tener métodos concretos y abstractos.
+
+### Sobre el polimorfismo
++ Es la capacidad de un objeto de ser referenciado por varios tipos.
++ Podemos comunicarnos con un objeto a través de diferentes tipos de variables.
++ Por ejemplo, si hay una clase Gerente que sea hija de Funcionario. Un objeto de tipo Gerente puede ser referenciado como tipo Funcionario también.
++ Tenemos polimorfismo cuando una clase se extiende de otra o también cuando una clase implementa una interfaz.
++ tenemos polimorfismo por herencia o interfaz.
+
+  ### Aprendimos
++  No hay herencia múltiple en Java.
++ Conceptos de interfaz.
++ Diferencias entre clases abstractas e interfaces.
++ Las interfaces son una alternativa a la herencia con respecto al polimorfismo
 
