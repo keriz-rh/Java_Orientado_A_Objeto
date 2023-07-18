@@ -12,3 +12,8 @@
     en la parte superior de la pila. La JVM también sabe qué otros aún deben estar ejecutandose, que son precisamente
     los métodos que continúan.
     
++ Qué son las excepciones, para qué sirven y por qué se utilizarlas.
++ Cómo analizar el seguimiento de excepciones o stacktrace.
++ Manejar excepciones con bloques try-catch.
++ Manejar una excepción lanzada dentro del bloque catch.
++ Manejar múltiples excepciones con más de un bloque catcho usando Multi-Catch usando el pipe (|).
