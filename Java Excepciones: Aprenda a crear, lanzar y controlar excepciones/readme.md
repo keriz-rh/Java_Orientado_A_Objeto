@@ -19,9 +19,39 @@
 + Manejar múltiples excepciones con más de un bloque catcho usando Multi-Catch usando el pipe (|).
 
 Sobre el lanzamiento de excepciones. Juzgue las siguientes afirmaciones a continuación.
+Para lanzar una excepción, además de instanciarla, es necesario lanzarla a través del throw
+Podemos asignar un mensaje a la excepción.
+ 
+¡Lancemos nuestra primera excepción! Para hacer esto, siga los pasos a continuación:
 
-Para lanzar una excepción, además de instanciarla, es necesario lanzarla a través del throw.
+1) En el proyecto Java-stack, haga una copia de la clase Flujo, renombrándola como FlujoConTratamiento.
 
-La excepción solo se puede lanzar a través de su referencia, por ejemplo:
+2) En la clase FlujoConTratamiento, en el método2, elimine por completo el bucle for.
 
- Podemos asignar un mensaje a la excepción.
+3) Crear una instancia de ArithmeticException:
+
+ArithmeticException exception = new ArithmeticException();
+
+4) Ahora, lanza la excepción:
+
+private static void metodo2() {
+        System.out.println("Inicio del metodo2");
+        ArithmeticException exception = new ArithmeticException();
+        throw exception;
+}
+
+5) No es necesario guardar la excepción en una referencia, puede lanzarla directamente en una línea:
+
+private static void metodo2() {
+        System.out.println("Inicio del metodo2");
+        throw new ArithmeticException();
+}
+
+6) Y también puede enviar un mensaje como parámetro al constructor de la excepción:
+
+private static void metodo2() {
+        System.out.println("Inicio del metodo2");
+        throw new ArithmeticException("Surgió un error");
+}
+
+7) En la siguiente clase, verá cómo crear su propia excepción.
