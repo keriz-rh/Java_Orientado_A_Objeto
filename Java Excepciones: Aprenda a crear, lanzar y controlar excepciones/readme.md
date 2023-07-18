@@ -17,3 +17,11 @@
 + Manejar excepciones con bloques try-catch.
 + Manejar una excepción lanzada dentro del bloque catch.
 + Manejar múltiples excepciones con más de un bloque catcho usando Multi-Catch usando el pipe (|).
+
+Sobre el lanzamiento de excepciones. Juzgue las siguientes afirmaciones a continuación.
+
+Para lanzar una excepción, además de instanciarla, es necesario lanzarla a través del throw.
+
+La excepción solo se puede lanzar a través de su referencia, por ejemplo:
+
+ Podemos asignar un mensaje a la excepción.
