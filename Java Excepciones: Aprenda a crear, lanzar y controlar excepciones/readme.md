@@ -33,25 +33,25 @@ Podemos asignar un mensaje a la excepción.
 ArithmeticException exception = new ArithmeticException();
 
 4) Ahora, lanza la excepción:
-
+```java
 private static void metodo2() {
         System.out.println("Inicio del metodo2");
         ArithmeticException exception = new ArithmeticException();
         throw exception;
 }
-
+```
 5) No es necesario guardar la excepción en una referencia, puede lanzarla directamente en una línea:
-
+```java
 private static void metodo2() {
         System.out.println("Inicio del metodo2");
         throw new ArithmeticException();
 }
-
+```
 6) Y también puede enviar un mensaje como parámetro al constructor de la excepción:
-
+```java
 private static void metodo2() {
         System.out.println("Inicio del metodo2");
         throw new ArithmeticException("Surgió un error");
 }
-
+```
 7) En la siguiente clase, verá cómo crear su propia excepción.
