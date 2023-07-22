@@ -276,3 +276,232 @@ Creamos un catch genérica que captura cualquier excepción, incluidas las exc
 
 NOTA:
 ***Esto puede parecer una buena práctica, pero generalmente no lo es. Como regla general, siempre trate de ser lo más específico posible en el bloque catch favoreciendo multiples bloques de catch o utilizando multi-catch.***
+
+¿Cómo pueden las excepciones ayudar a mejorar el código de su programa?
+
+1) Las excepciones tienen un nombre y, si ese nombre es expresivo, documenta el problema que está ocurriendo.
+
+2) Las excepciones pueden tener un mensaje, es decir, el problema y el estado de las variables se pueden describir en el mensaje.
+
+3) Las excepciones cambian el flujo de ejecución, es decir, impiden que el problema siga el flujo "normal" cuando ocurre algo excepcional.
+
+4) Se pueden manejar excepciones, es decir, podemos volver a la ejecución "normal" si se resuelve el "problema".
+
+   ## Ejercicio
+    ¿Como resolver?
+   
+Johann creó una excepción SaldoInsuficienteException, como se muestra en el último video:
+```java
+public class SaldoInsuficienteException extends Exception {
+
+    public SaldoInsuficienteException(String msg) {
+        super(msg);
+    }
+}
+```
+Luego cambió la implementación del método sacar para lanzar una excepción:
+```java
+public abstract class Cuenta { 
+
+    //atributos y otros métodos omitidos
+
+    public void sacar(double valor) throws SaldoInsuficienteException {
+        if(this.saldo < valor) {
+            throw new SaldoInsuficienteException("Saldo: " + this.saldo + ", Valor: " + valor);
+        }
+        this.saldo -= valor; 
+    }
+}      
+```
+Hasta ahora todo está bien, pero la implementación del método sacar se basa en la clase CuentaCorriente que no quiere compilar:
+```java
+public class CuentaCorriente extends Cuenta implements Tributable { 
+    //atributos y otros métodos omitidos
+
+    @Override
+    public void sacar(double valor) {
+        double valorASacar = valor + 0.2;
+        super.sacar(valorASacar); 
+    }
+}
+```
+### Respuesta
++ Como la excepción es un checked, debemos usar throws *SaldoInsuficienteException en la firma del método sacar de la clase CuentaCorriente.
++ Observe que llamamos a super.sacar(..) en el método sacar de la clase CuentaCorriente. El compilador se da cuenta de que el método de la clase madre tiene el throws de una excepción checked y obliga al método hijo una acción.
+
+# TRY, CATCH AND FINALLY
+En Java, "try", "catch" y "finally" son bloques utilizados para manejar excepciones y realizar acciones de limpieza o liberación de recursos, garantizando que el código se ejecute de manera más robusta y controlada.
+
+1. "try": El bloque "try" se utiliza para rodear el código que podría arrojar una excepción. Si ocurre alguna excepción dentro del bloque "try", el control se transfiere al bloque "catch" correspondiente (si existe) para manejar la excepción.
+
+2. "catch": El bloque "catch" se utiliza para capturar y manejar excepciones que ocurren dentro del bloque "try". Cada bloque "catch" se asocia con un tipo específico de excepción que puede ser capturada y manejada. Si se produce una excepción que coincide con el tipo especificado en el bloque "catch", el código dentro de ese bloque se ejecutará para manejar la excepción.
+
+3. "finally": El bloque "finally" se utiliza para contener código que se ejecutará siempre, ya sea que se produzca o no una excepción dentro del bloque "try". El bloque "finally" es útil para asegurarse de que ciertas acciones, como la liberación de recursos o limpieza, se realicen sin importar si ha ocurrido o no una excepción.
+
+Sintaxis:
+
+```java
+try {
+    // Código que podría arrojar una excepción
+} catch (TipoDeExcepcion e) {
+    // Código para manejar la excepción
+} finally {
+    // Código que se ejecutará siempre
+}
+```
+
+Ejemplo:
+
+```java
+public class EjemploTryCatchFinally {
+    public static void main(String[] args) {
+        try {
+            int resultado = dividir(10, 0); // Llamamos a un método que podría arrojar una excepción
+            System.out.println("El resultado es: " + resultado);
+        } catch (ArithmeticException e) {
+            System.out.println("Se ha producido una excepción: " + e.getMessage());
+        } finally {
+            System.out.println("Este bloque siempre se ejecutará, sin importar si hubo excepción o no.");
+        }
+    }
+
+    public static int dividir(int a, int b) {
+        return a / b; // Aquí podría ocurrir una excepción si b es igual a 0
+    }
+}
+```
+
+En este ejemplo, el bloque "try" intenta ejecutar la operación de división. Si "b" es igual a 0, se arrojará una excepción "ArithmeticException". La excepción será capturada por el bloque "catch" correspondiente, y luego el bloque "finally" se ejecutará para realizar cualquier limpieza o liberación de recursos necesaria.
+
+El uso de "try", "catch" y "finally" es esencial para manejar excepciones de manera adecuada y asegurar una ejecución más controlada y segura del código en Java.
+## Ejercicio
+Tratamiento de excepciones
+El equipo de desarrolladores decidió crear dos excepciones para trabajar con cuentas:
+```java
+public class SacarException extends RuntimeException {
+}
+```
+Y
+``` java
+public class DepositarException extends RuntimeException { }
+```
+Conociendo las dos excepciones, es necesario realizar un tratamiento.  Las siguientes opciones son válidas (que compilan):
+
++ un tratamiento con try y multi-catch.
+``` java
+   try {
+} catch(SacarException | DepositarException ex) {
+
+} 
+```
++ el tratamiento el bloque de catch es opcional cuando existe el bloque finally.
+``` java
+try {
+} finally {
+}
+```
++ un tratamiento con try con dos bloques de catch (clásicos) y el bloque Finally.
+``` java
+try {
+} catch(SacarException ex) {
+} catch(DepositarException ex) {
+} finally {
+}
+``` 
+#  Try con recurso (try-with-resources)
+
+¿Qué se garantiza cuando usamos try-with-resources?
+``` java
+try(Conexion con = new Conexion()) {
+    con.leerDatos();
+}
+```
++ El recurso necesita implementar el método close() se crea automáticamente un bloque finally. En él se llama al método close() del recurso.
++ El bloque finally se crea automáticamente se crea automáticamente un bloque finally. En él se llama al método close() del recurso.
+
+"Try con recurso" (try-with-resources) es una característica introducida en Java a partir de la versión 7 (Java 7). Proporciona una forma más concisa y segura de trabajar con recursos que necesitan ser cerrados explícitamente, como archivos, flujos de entrada/salida, conexiones de bases de datos, entre otros.
+
+Antes de la introducción de "try con recurso", era necesario utilizar bloques "try-catch-finally" para manejar recursos que necesitaban ser cerrados correctamente, lo que podía resultar en código más extenso y menos legible.
+
+Con "try con recurso", podemos declarar y abrir recursos dentro del bloque "try", y Java se asegura de que los recursos sean cerrados automáticamente al finalizar el bloque "try". Esto se logra mediante la implementación de la interfaz "AutoCloseable" por parte de los recursos que deseamos manejar de esta manera.
+
+La sintaxis de "try con recurso" es la siguiente:
+
+```java
+try (Declaración y asignación de recursos) {
+    // Código que utiliza el recurso
+} catch (Excepción e) {
+    // Manejo de excepciones
+}
+// No es necesario un bloque "finally" para cerrar el recurso
+```
+
+Ejemplo:
+
+```java
+public class EjemploTryConRecurso {
+    public static void main(String[] args) {
+        // Ejemplo utilizando try con recurso para trabajar con un archivo
+        try (BufferedReader br = new BufferedReader(new FileReader("archivo.txt"))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                System.out.println(linea);
+            }
+        } catch (IOException e) {
+            System.out.println("Error al leer el archivo: " + e.getMessage());
+        }
+        // El recurso "br" se cerrará automáticamente al finalizar el bloque try
+    }
+}
+```
+
+En este ejemplo, el objeto "BufferedReader" se abre dentro del bloque "try" como parte de la declaración de recursos. Una vez que se sale del bloque "try", ya sea que ocurra una excepción o no, el recurso "BufferedReader" se cerrará automáticamente sin necesidad de un bloque "finally" explícito.
+
+"Try con recurso" facilita la gestión de recursos, garantizando que se cierren de manera adecuada y oportuna, y ayuda a reducir la posibilidad de errores relacionados con el manejo incorrecto de recursos en Java. Es una práctica recomendada utilizar "try con recurso" siempre que sea posible para trabajar con recursos que necesiten ser cerrados explícitamente.
+# las palabras claves relacionadas con las excepciones
+
+1) throw
+
+2) finally
+
+3) catch
+
+4) throws
+
+5) try
+
+# Excepciones padrones
+
+En el video, usamos la excepción IllegalStateException, que es parte de la biblioteca de Java e indica que un objeto tiene un estado invalido. Es posible que haya visto otras excepciones famosas, como NullPointerException. Ambos son parte de las excepciones padrones del mundo Java que el desarrollador debe conocer.
+
+Hay otra excepción padrón importante que podríamos haber utilizado en nuestro proyecto. Para ponerlo en contexto, ¿tiene sentido crear una cuenta con una agencia que tiene un valor negativo? Por ejemplo:
+```java
+Cuenta c = new CuentaCorriente (-111, 222);  //¿tiene sentido?
+```
+No tiene ningún sentido. Entonces, podríamos verificar los valores en el constructor de la clase. Si el valor es incorrecto, lanzamos una excepción. ¿Cual? La IllegalArgumentException, que es parte de las excepciones de la biblioteca de Java:
+```java
+public abstract class Cuenta {
+
+    //atributos omitidos
+
+    public Cuenta(int agencia, int numero){
+
+        if(agencia < 1) {
+            throw new IllegalArgumentException("Agencia inválida");
+        }
+
+        if(numero < 1) {
+            throw new llegalStateException("Número de cuenta inválido");
+        }
+
+        //resto del constructor fue omitido
+    }
+}
+```
+IllegalArgumentException e IllegalStateException son dos excepciones importantes que el desarrollador de Java debería utilizar. En general, cuando tenga sentido, utilice una excepción estándar en lugar de crear la suya propia.
+
+#Aprendimos
++ que existe un bloque finally, útil para cerrar recursos (como conexión);
++ cuando hay un bloque finally, el bloque de catch es opcional;
++ que el bloque * finally * se ejecuta siempre, sin o con excepción;
++ cómo utilizar try-with-resources.+
