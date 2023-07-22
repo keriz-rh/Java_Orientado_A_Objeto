@@ -1,8 +1,10 @@
-package java_pila_ejecucion;
+package excepciones;
 
 public class Cuenta {
 
-	void deposita() throws Miexception{
+	void deposita() throws MiException {
 		
 	}
+	
 }
+
