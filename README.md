@@ -2,6 +2,40 @@
 Se hará una recopilación del codigo escrito durante el curso de java orientado a objetos de #AluraLatam y #OracleOneNextEducaction
 
 # Conceptos generales:
+ A continuación te proporciono una lista de conceptos generales que son fundamentales para comprender la Programación Orientada a Objetos (POO):
+
+1. Clase: Es una plantilla o modelo que define las propiedades y comportamientos que tendrán los objetos creados a partir de ella. Representa un tipo de dato personalizado.
+
+2. Objeto: Es una instancia concreta de una clase. Es una entidad que tiene atributos y puede realizar acciones definidas por la clase.
+
+3. Atributo: Representa las características o propiedades de un objeto. Son variables declaradas dentro de una clase.
+
+4. Método: Son funciones o procedimientos definidos dentro de una clase que definen el comportamiento de los objetos creados a partir de esa clase.
+
+5. Encapsulación: Es un principio de POO que consiste en ocultar los detalles internos de una clase y exponer solo aquellos métodos y atributos que sean necesarios para interactuar con el objeto.
+
+6. Herencia: Es un mecanismo mediante el cual una clase puede heredar propiedades y comportamientos de otra clase. Permite crear jerarquías de clases y reutilizar código.
+
+7. Polimorfismo: Es la capacidad de un objeto de tomar múltiples formas. En Java, esto se logra a través de la sobreescritura de métodos y la implementación de interfaces.
+
+8. Abstracción: Es el proceso de simplificar y representar entidades del mundo real en forma de clases y objetos. Permite enfocarse en los aspectos relevantes y ocultar los detalles innecesarios.
+
+9. Interfaz: Es una colección de métodos abstractos que definen un conjunto de comportamientos que una clase debe implementar. Permite la implementación de múltiples interfaces para lograr el polimorfismo.
+
+10. Instancia: Es un objeto específico creado a partir de una clase.
+
+11. Constructor: Es un método especial de una clase que se ejecuta automáticamente cuando se crea un nuevo objeto. Se utiliza para inicializar los atributos del objeto.
+
+12. Sobrecarga: Es la capacidad de definir múltiples métodos con el mismo nombre pero con diferentes parámetros. Los métodos se diferencian por la cantidad o tipos de parámetros.
+
+13. Palabra clave `this`: Se utiliza para hacer referencia al objeto actual dentro de la clase. Permite distinguir entre el atributo de la clase y el parámetro del método que pueden tener el mismo nombre.
+
+14. Palabra clave `super`: Se utiliza para hacer referencia a la clase padre o superclase desde una subclase. Permite acceder a los miembros de la clase padre.
+
+15. Palabra clave `static`: Indica que un miembro (atributo o método) pertenece a la clase en lugar de pertenecer a una instancia específica. Los miembros estáticos se comparten entre todas las instancias de la clase.
+
+Estos son algunos de los conceptos más importantes de la Programación Orientada a Objetos. Comprender y aplicar estos conceptos te permitirá crear código más modular, reutilizable y fácil de mantener. ¡Buena suerte en tu camino en la programación orientada a objetos!
+_______________________________
 A continuación te explico cada uno de los conceptos en el contexto de la programación orientada a objetos en Java:
 
 1. Método:
