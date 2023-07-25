@@ -7,32 +7,211 @@ Se hará una recopilación del codigo escrito durante el curso de java orientado
 1. Clase: Es una plantilla o modelo que define las propiedades y comportamientos que tendrán los objetos creados a partir de ella. Representa un tipo de dato personalizado.
 
 2. Objeto: Es una instancia concreta de una clase. Es una entidad que tiene atributos y puede realizar acciones definidas por la clase.
+```java
+   // Clase que representa una Persona
+public class Persona {
+    // Atributos
+    String nombre;
+    int edad;
 
-3. Atributo: Representa las características o propiedades de un objeto. Son variables declaradas dentro de una clase.
+    // Método
+    public void saludar() {
+        System.out.println("Hola, soy " + nombre + " y tengo " + edad + " años.");
+    }
+}
 
-4. Método: Son funciones o procedimientos definidos dentro de una clase que definen el comportamiento de los objetos creados a partir de esa clase.
+// Uso de la clase Persona
+public class Main {
+    public static void main(String[] args) {
+        // Creación de objetos (instancias) de la clase Persona
+        Persona persona1 = new Persona();
+        persona1.nombre = "Juan";
+        persona1.edad = 30;
 
-5. Encapsulación: Es un principio de POO que consiste en ocultar los detalles internos de una clase y exponer solo aquellos métodos y atributos que sean necesarios para interactuar con el objeto.
+        Persona persona2 = new Persona();
+        persona2.nombre = "María";
+        persona2.edad = 25;
 
-6. Herencia: Es un mecanismo mediante el cual una clase puede heredar propiedades y comportamientos de otra clase. Permite crear jerarquías de clases y reutilizar código.
+        // Uso del método saludar()
+        persona1.saludar(); // Salida: "Hola, soy Juan y tengo 30 años."
+        persona2.saludar(); // Salida: "Hola, soy María y tengo 25 años."
+    }
+}
+```
 
-7. Polimorfismo: Es la capacidad de un objeto de tomar múltiples formas. En Java, esto se logra a través de la sobreescritura de métodos y la implementación de interfaces.
+4. Atributo: Representa las características o propiedades de un objeto. Son variables declaradas dentro de una clase.
 
-8. Abstracción: Es el proceso de simplificar y representar entidades del mundo real en forma de clases y objetos. Permite enfocarse en los aspectos relevantes y ocultar los detalles innecesarios.
+5. Método: Son funciones o procedimientos definidos dentro de una clase que definen el comportamiento de los objetos creados a partir de esa clase.
 
-9. Interfaz: Es una colección de métodos abstractos que definen un conjunto de comportamientos que una clase debe implementar. Permite la implementación de múltiples interfaces para lograr el polimorfismo.
+6. Encapsulación: Es un principio de POO que consiste en ocultar los detalles internos de una clase y exponer solo aquellos métodos y atributos que sean necesarios para interactuar con el objeto.
+```java
+// Clase que representa un Banco con encapsulación
+public class Banco {
+    // Atributos privados
+    private String nombre;
+    private int cantidadClientes;
 
-10. Instancia: Es un objeto específico creado a partir de una clase.
+    // Métodos públicos para acceder y modificar los atributos privados
+    public String getNombre() {
+        return nombre;
+    }
 
-11. Constructor: Es un método especial de una clase que se ejecuta automáticamente cuando se crea un nuevo objeto. Se utiliza para inicializar los atributos del objeto.
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-12. Sobrecarga: Es la capacidad de definir múltiples métodos con el mismo nombre pero con diferentes parámetros. Los métodos se diferencian por la cantidad o tipos de parámetros.
+    public int getCantidadClientes() {
+        return cantidadClientes;
+    }
 
-13. Palabra clave `this`: Se utiliza para hacer referencia al objeto actual dentro de la clase. Permite distinguir entre el atributo de la clase y el parámetro del método que pueden tener el mismo nombre.
+    public void setCantidadClientes(int cantidadClientes) {
+        this.cantidadClientes = cantidadClientes;
+    }
+}
 
-14. Palabra clave `super`: Se utiliza para hacer referencia a la clase padre o superclase desde una subclase. Permite acceder a los miembros de la clase padre.
+// Uso de la clase Banco con encapsulación
+public class Main {
+    public static void main(String[] args) {
+        Banco miBanco = new Banco();
+        miBanco.setNombre("Banco XYZ");
+        miBanco.setCantidadClientes(1000);
 
-15. Palabra clave `static`: Indica que un miembro (atributo o método) pertenece a la clase en lugar de pertenecer a una instancia específica. Los miembros estáticos se comparten entre todas las instancias de la clase.
+        System.out.println("Nombre del banco: " + miBanco.getNombre());
+        System.out.println("Cantidad de clientes: " + miBanco.getCantidadClientes());
+    }
+}
+
+```
+
+7. Herencia: Es un mecanismo mediante el cual una clase puede heredar propiedades y comportamientos de otra clase. Permite crear jerarquías de clases y reutilizar código.
+```java
+// Clase base que representa un Animal
+public class Animal {
+    String especie;
+
+    public void emitirSonido() {
+        System.out.println("Sonido indefinido");
+    }
+}
+
+// Clase derivada que representa un Perro, heredando de Animal
+public class Perro extends Animal {
+    @Override
+    public void emitirSonido() {
+        System.out.println("Guau guau");
+    }
+}
+
+// Uso de las clases Animal y Perro con herencia
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        animal.emitirSonido(); // Salida: "Sonido indefinido"
+
+        Perro perro = new Perro();
+        perro.emitirSonido(); // Salida: "Guau guau"
+    }
+}
+
+```
+8. Polimorfismo: Es la capacidad de un objeto de tomar múltiples formas. En Java, esto se logra a través de la sobreescritura de métodos y la implementación de interfaces.
+ ```java
+// Clase base que representa una Figura
+public class Figura {
+    public void dibujar() {
+        System.out.println("Dibujando figura");
+    }
+}
+
+// Clases derivadas que representan figuras específicas
+public class Circulo extends Figura {
+    @Override
+    public void dibujar() {
+        System.out.println("Dibujando círculo");
+    }
+}
+
+public class Cuadrado extends Figura {
+    @Override
+    public void dibujar() {
+        System.out.println("Dibujando cuadrado");
+    }
+}
+
+// Uso del polimorfismo con las clases Figura, Circulo y Cuadrado
+public class Main {
+    public static void main(String[] args) {
+        Figura figura1 = new Circulo();
+        Figura figura2 = new Cuadrado();
+
+        figura1.dibujar(); // Salida: "Dibujando círculo"
+        figura2.dibujar(); // Salida: "Dibujando cuadrado"
+    }
+}
+
+  ```
+
+10. Abstracción: Es el proceso de simplificar y representar entidades del mundo real en forma de clases y objetos. Permite enfocarse en los aspectos relevantes y ocultar los detalles innecesarios.
+  ```java
+// Clase abstracta que representa una Forma geométrica
+public abstract class Forma {
+    public abstract double calcularArea();
+}
+
+// Clases concretas que implementan la clase Forma
+public class Circulo extends Forma {
+    private double radio;
+
+    public Circulo(double radio) {
+        this.radio = radio;
+    }
+
+    @Override
+    public double calcularArea() {
+        return Math.PI * radio * radio;
+    }
+}
+
+public class Rectangulo extends Forma {
+    private double largo;
+    private double ancho;
+
+    public Rectangulo(double largo, double ancho) {
+        this.largo = largo;
+        this.ancho = ancho;
+    }
+
+    @Override
+    public double calcularArea() {
+        return largo * ancho;
+    }
+}
+
+// Uso de la abstracción con las clases Circulo y Rectangulo
+public class Main {
+    public static void main(String[] args) {
+        Forma circulo = new Circulo(5.0);
+        Forma rectangulo = new Rectangulo(3.0, 4.0);
+
+        System.out.println("Área del círculo: " + circulo.calcularArea()); // Salida: "Área del círculo: 78.53981633974483"
+        System.out.println("Área del rectángulo: " + rectangulo.calcularArea()); // Salida: "Área del rectángulo: 12.0"
+    }
+}
+
+  ```
+11. Interfaz: Es una colección de métodos abstractos que definen un conjunto de comportamientos que una clase debe implementar. Permite la implementación de múltiples interfaces para lograr el polimorfismo.
+
+12. Instancia: Es un objeto específico creado a partir de una clase.
+
+13. Constructor: Es un método especial de una clase que se ejecuta automáticamente cuando se crea un nuevo objeto. Se utiliza para inicializar los atributos del objeto.
+
+14. Sobrecarga: Es la capacidad de definir múltiples métodos con el mismo nombre pero con diferentes parámetros. Los métodos se diferencian por la cantidad o tipos de parámetros.
+
+15. Palabra clave `this`: Se utiliza para hacer referencia al objeto actual dentro de la clase. Permite distinguir entre el atributo de la clase y el parámetro del método que pueden tener el mismo nombre.
+
+16. Palabra clave `super`: Se utiliza para hacer referencia a la clase padre o superclase desde una subclase. Permite acceder a los miembros de la clase padre.
+
+17. Palabra clave `static`: Indica que un miembro (atributo o método) pertenece a la clase en lugar de pertenecer a una instancia específica. Los miembros estáticos se comparten entre todas las instancias de la clase.
 
 Estos son algunos de los conceptos más importantes de la Programación Orientada a Objetos. Comprender y aplicar estos conceptos te permitirá crear código más modular, reutilizable y fácil de mantener. ¡Buena suerte en tu camino en la programación orientada a objetos!
 _______________________________
