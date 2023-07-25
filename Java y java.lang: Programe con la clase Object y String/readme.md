@@ -69,3 +69,9 @@ no hay necesidad de heredar de Object explícitamente, el compilador inserta aut
 Cualquier objeto puede ser referenciado por el tipo de Object, ya que es el principal.
 el tipo de objeto es la forma más genérica de hacer referencia a un objeto.
   
+### Propósito de toString()
+El método toString() existe para devolver información sobre el estado del objeto.
+el método toString debería devolver información sobre el estado del objeto. Es útil para depurar en desarrollo.
+
+El método toString() existe para ser reemplazado.
+es una buena práctica sobrescribir el método para darle un significado mayor que el resultado estándar de ese método.
