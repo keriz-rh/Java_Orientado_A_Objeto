@@ -60,4 +60,12 @@ Aquí está la lista completa:
 @deprecated
 Es importante que las etiquetas javadoc existan solo para estandarizar algunos datos fundamentales de su código fuente, como el autor y la versión
 
+## La clase Object es la clase raíz de Java, es correcto afirmar:
+
+No es necesario que dejar explícito en la declaración de una clase que debe heredar de Object, porque esto es automático.
+no hay necesidad de heredar de Object explícitamente, el compilador inserta automáticamente la declaración.
+
+
+Cualquier objeto puede ser referenciado por el tipo de Object, ya que es el principal.
+el tipo de objeto es la forma más genérica de hacer referencia a un objeto.
   
