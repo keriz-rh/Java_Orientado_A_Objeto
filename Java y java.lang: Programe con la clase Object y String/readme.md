@@ -37,11 +37,27 @@ NOTA: ¡Solo es visible para los hijos!
 En esta clase volvimos a hablar sobre visibilidad y aprendimos:
 
 + Hay 3 palabras clave relacionadas con la visibilidad: private, protected, public
-+ Hay 4 niveles de visibilidad (de menor a mayor):
++ Hay 4 niveles de visibilidad (de menor a mayor)
   + + private (visible solo en clase)
   + + <<package private>> (visible en la clase y en cualquier otro miembro del mismo paquete, que puede ser llamado de default)
   + + protected (visible en la clase y en cualquier otro miembro del mismo paquete y para cualquier hijo)
   + + public (visible en cualquier paquete)
 + Los modificadores pueden ser usados en la definición de la clase, atributo, constructor y método.
+
+### Con respecto a javadoc 
+Ya vimos en esta clase algunas tag (o anotaciones) de javadoc como @version o @author.
+
+Aquí está la lista completa:
+
+@author (usado en la clase o interfaz)
+@version (usado en la clase o interfaz)
+@param (usado en el método y constructor)
+@return (usado solo en el método)
+@exception o @throws (en el método o constructor)
+@see
+@since
+@serial
+@deprecated
+Es importante que las etiquetas javadoc existan solo para estandarizar algunos datos fundamentales de su código fuente, como el autor y la versión
 
   
