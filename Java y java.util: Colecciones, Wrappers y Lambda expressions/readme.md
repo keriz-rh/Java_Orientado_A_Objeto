@@ -89,3 +89,22 @@ int valorPrimitivo = wrapperInteger; // Unboxing: Se convierte automáticamente 
 ```
 
 En general, los wrappers en Java son útiles cuando necesitas trabajar con tipos primitivos en contextos donde solo se permiten objetos o cuando deseas utilizar los métodos y funcionalidades adicionales proporcionadas por las clases wrapper. Sin embargo, es esencial tener en cuenta que los wrappers añaden cierta sobrecarga debido a la necesidad de envolver y desenvolver los valores primitivos, por lo que es importante utilizarlos con prudencia para evitar posibles problemas de rendimiento.
+
+byte - 1 byte
+short - 2 bytes
+int - 4 bytes
+long - 8 bytes
+float - 4 bytes
+double - 8 bytes
+char - 2 bytes
+boolean - 1 byte (algunas implementaciones podrían usar menos, pero generalmente es 1 byte)
+Tamaños en bytes de los wrappers:
+
+Byte - 1 byte (almacena un byte)
+Short - 2 bytes (almacena un short)
+Integer - 4 bytes (almacena un int)
+Long - 8 bytes (almacena un long)
+Float - 4 bytes (almacena un float)
+Double - 8 bytes (almacena un double)
+Character - 2 bytes (almacena un char)
+Boolean - 1 byte (generalmente almacena un boolean, aunque algunas implementaciones podrían usar menos)
