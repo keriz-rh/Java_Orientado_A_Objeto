@@ -33,3 +33,59 @@ double valor = 3.56;
 int numero = (int) valor; //cast explícito es exigido por el compilador
 ```
 En este caso, el compilador desecha todo el valor fraccionario y almacena solo el valor entero.
+
+# Wrappers
+En el contexto de programación en Java, un "wrapper" se refiere a un tipo de clase que se utiliza para envolver o encapsular un valor primitivo en un objeto. Los tipos primitivos en Java son aquellos que representan datos simples, como enteros, caracteres, booleanos y números en coma flotante. Los wrappers proporcionan una manera de trabajar con estos tipos primitivos como si fueran objetos, lo que permite utilizarlos en contextos donde solo se admiten objetos, como en colecciones (por ejemplo, listas o mapas) o en ciertas clases y métodos que requieren objetos.
+
+En Java, hay ocho tipos primitivos:
+
+1. byte
+2. short
+3. int
+4. long
+5. float
+6. double
+7. char
+8. boolean
+
+Y para cada uno de estos tipos primitivos, hay una clase "wrapper" correspondiente con un nombre similar:
+
+1. Byte
+2. Short
+3. Integer
+4. Long
+5. Float
+6. Double
+7. Character
+8. Boolean
+
+Por ejemplo, para envolver un valor entero (tipo primitivo `int`) en un objeto, puedes usar el wrapper `Integer` de la siguiente manera:
+
+```java
+int valorPrimitivo = 42;
+Integer wrapperInteger = Integer.valueOf(valorPrimitivo); // Envolver en el wrapper Integer
+```
+
+Del mismo modo, para obtener el valor primitivo desde el wrapper, puedes utilizar el método `intValue()`:
+
+```java
+int valorDesenvuelto = wrapperInteger.intValue(); // Obtener el valor primitivo desde el wrapper Integer
+```
+
+Los wrappers también proporcionan métodos útiles para convertir valores primitivos en cadenas (`toString()`) o para convertir cadenas en valores primitivos (`parseXxx()`), donde "Xxx" representa el tipo primitivo, por ejemplo, `parseInt()` para `int`.
+
+Es importante tener en cuenta que a partir de Java 5, se introdujo la "autoboxing" y "unboxing", lo que permite que Java realice automáticamente la conversión entre tipos primitivos y sus wrappers cuando sea necesario, simplificando en gran medida el código que los involucra. Por ejemplo, ahora puedes asignar directamente un valor primitivo a un wrapper:
+
+```java
+int valorPrimitivo = 42;
+Integer wrapperInteger = valorPrimitivo; // Autoboxing: Se convierte automáticamente a Integer
+```
+
+Y también se puede hacer la operación inversa de manera similar:
+
+```java
+Integer wrapperInteger = 42;
+int valorPrimitivo = wrapperInteger; // Unboxing: Se convierte automáticamente a int
+```
+
+En general, los wrappers en Java son útiles cuando necesitas trabajar con tipos primitivos en contextos donde solo se permiten objetos o cuando deseas utilizar los métodos y funcionalidades adicionales proporcionadas por las clases wrapper. Sin embargo, es esencial tener en cuenta que los wrappers añaden cierta sobrecarga debido a la necesidad de envolver y desenvolver los valores primitivos, por lo que es importante utilizarlos con prudencia para evitar posibles problemas de rendimiento.
